@@ -34,11 +34,27 @@ namespace Ping
             {
                 this.Close();
             }
+            if (e.KeyCode == Keys.W)
+            {
+                platform.Top += -30;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                platform.Top += 30;
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                platform.Left += -30;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                platform.Left += 30;
+            }
         }
 
         private void lose_Tick(object sender, EventArgs e)
         {
-            platform.Left = Cursor.Position.X - (platform.Width / 2);
+            /*platform.Left = Cursor.Position.X - (platform.Width / 2);*/
             ball.Left += hor;
             ball.Top += vert;
 
