@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.backGround = new System.Windows.Forms.Panel();
+            this.loseLabel = new System.Windows.Forms.Label();
+            this.counter = new System.Windows.Forms.Label();
             this.ball = new System.Windows.Forms.PictureBox();
             this.platform = new System.Windows.Forms.PictureBox();
             this.lose = new System.Windows.Forms.Timer(this.components);
-            this.counter = new System.Windows.Forms.Label();
-            this.loseLabel = new System.Windows.Forms.Label();
+            this.pauseLabel = new System.Windows.Forms.Label();
             this.backGround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.platform)).BeginInit();
@@ -42,6 +43,7 @@
             // 
             // backGround
             // 
+            this.backGround.Controls.Add(this.pauseLabel);
             this.backGround.Controls.Add(this.loseLabel);
             this.backGround.Controls.Add(this.counter);
             this.backGround.Controls.Add(this.ball);
@@ -52,6 +54,29 @@
             this.backGround.Name = "backGround";
             this.backGround.Size = new System.Drawing.Size(800, 450);
             this.backGround.TabIndex = 0;
+            // 
+            // loseLabel
+            // 
+            this.loseLabel.AutoSize = true;
+            this.loseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loseLabel.ForeColor = System.Drawing.Color.Red;
+            this.loseLabel.Location = new System.Drawing.Point(253, 158);
+            this.loseLabel.Name = "loseLabel";
+            this.loseLabel.Size = new System.Drawing.Size(350, 55);
+            this.loseLabel.TabIndex = 3;
+            this.loseLabel.Text = "Вы проиграли!";
+            // 
+            // counter
+            // 
+            this.counter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.counter.AutoSize = true;
+            this.counter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.counter.ForeColor = System.Drawing.Color.Black;
+            this.counter.Location = new System.Drawing.Point(640, 37);
+            this.counter.Name = "counter";
+            this.counter.Size = new System.Drawing.Size(112, 24);
+            this.counter.TabIndex = 2;
+            this.counter.Text = "Ваш счёт: 0";
             // 
             // ball
             // 
@@ -76,28 +101,15 @@
             this.lose.Interval = 1;
             this.lose.Tick += new System.EventHandler(this.lose_Tick);
             // 
-            // counter
+            // pauseLabel
             // 
-            this.counter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.counter.AutoSize = true;
-            this.counter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.counter.ForeColor = System.Drawing.Color.Black;
-            this.counter.Location = new System.Drawing.Point(640, 37);
-            this.counter.Name = "counter";
-            this.counter.Size = new System.Drawing.Size(112, 24);
-            this.counter.TabIndex = 2;
-            this.counter.Text = "Ваш счёт: 0";
-            // 
-            // loseLabel
-            // 
-            this.loseLabel.AutoSize = true;
-            this.loseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loseLabel.ForeColor = System.Drawing.Color.Red;
-            this.loseLabel.Location = new System.Drawing.Point(253, 158);
-            this.loseLabel.Name = "loseLabel";
-            this.loseLabel.Size = new System.Drawing.Size(350, 55);
-            this.loseLabel.TabIndex = 3;
-            this.loseLabel.Text = "Вы проиграли!";
+            this.pauseLabel.AutoSize = true;
+            this.pauseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pauseLabel.Location = new System.Drawing.Point(326, 158);
+            this.pauseLabel.Name = "pauseLabel";
+            this.pauseLabel.Size = new System.Drawing.Size(161, 55);
+            this.pauseLabel.TabIndex = 4;
+            this.pauseLabel.Text = "Pause";
             // 
             // Form1
             // 
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Timer lose;
         private System.Windows.Forms.Label counter;
         private System.Windows.Forms.Label loseLabel;
+        private System.Windows.Forms.Label pauseLabel;
     }
 }
 

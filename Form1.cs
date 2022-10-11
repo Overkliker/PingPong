@@ -14,6 +14,10 @@ namespace Ping
     {
         public int vert = 4;
         public int hor = 4;
+
+        public int lastVert = 0;
+        public int lastHor = 0;
+
         public int score = 0;
         public Form1()
         {
@@ -28,6 +32,10 @@ namespace Ping
             loseLabel.Visible = false;
             loseLabel.Left = (backGround.Width / 2) - (loseLabel.Width / 2);
             loseLabel.Top = (backGround.Height / 2) - (loseLabel.Height / 2);
+
+            pauseLabel.Visible = false;
+            pauseLabel.Left = (backGround.Width / 2) - (pauseLabel.Width / 2);
+            pauseLabel.Top = (backGround.Height / 2) - (pauseLabel.Height / 2);
 
         }
 
@@ -49,6 +57,31 @@ namespace Ping
                 lose.Enabled = true;
                 counter.Text = "Ваш счёт: " + score;
             }
+
+            if (e.KeyCode == Keys.G && lose.Enabled == true)
+            {
+                lastHor = ball.Top;
+                lastVert = ball.Left;
+
+                ball.Top = 0;
+                ball.Left = 0;
+
+                ball.Visible = false;
+                platform.Visible = false;
+                pauseLabel.Visible = true;
+
+            }
+
+            if (e.KeyCode == Keys.P && pauseLabel.Visible == true)
+            {
+                ball.Top = lastHor;
+                ball.Left = lastVert;
+
+                ball.Visible = true;
+                platform.Visible = true;
+                pauseLabel.Visible = false;
+            }
+
 
             if (e.KeyCode == Keys.W)
             {
@@ -102,6 +135,7 @@ namespace Ping
                 
             }
         }
+
 
     }
 }
